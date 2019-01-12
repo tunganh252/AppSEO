@@ -1,0 +1,434 @@
+=setBox() 
+	+bor-rad(3px)
+	border: 1px solid #dfdfdf
+	background: #fff
+main
+	height: 100%
+.loginform
+	height: 100%
+	display: flex
+	justify-content: center 
+	align-items: center
+	background: darken(#fff,3%)
+	flex-direction: column
+	.loginform-processing
+		margin-bottom: 3rem
+		.nav 
+			+pad(0)
+			+mar(0)
+			list-style-type: none
+			display: table
+			min-width: 200px
+			overflow: hidden
+			li
+				display: table-cell
+				text-align: center
+				position: relative
+				&:first-child 
+					text-align: left
+				&:last-child 
+					text-align: right
+				span 
+					width: 2rem
+					height: 2rem
+					justify-content: center
+					align-items: center
+					background: #dfdfdf
+					+bor-rad(50%)
+					+fw(bold)
+					border: 1px solid #d6d4d4
+					position: relative
+					display: inline-flex
+					z-index: 10
+				&:after 
+					content: ''
+					display: block
+					width: 100%
+					background: #d6d4d4
+					height: 3px
+					+pos(abs, 50% null null 0)
+					transform: translateY(-50%)
+				&.active
+					span 
+						background: green
+						border: 1px solid green
+						color: #fff
+					&:before 
+						content: ''
+						display: block
+						width: 50%
+						background: green
+						height: 3px
+						+pos(abs, 50% null null 0)
+						transform: translateY(-50%)
+						z-index: 2
+					&:first-child 
+						&:after 
+							background: green
+					&:last-child 
+						&:before 
+							content: ''
+							display: block
+							width: 50%
+							background: green
+							height: 3px
+							+pos(abs, 50% null null -50%)
+							transform: translateY(-50%)
+							z-index: 2
+						&:after 
+							background: green
+		.bt
+			display: flex
+			justify-content: center
+			list-style: none
+			margin: 3rem 0 1rem 0
+			transform: translateX(-10%)
+			.next
+				margin-left: 3rem		
+	.loginform-box 
+		position: relative
+		&:before,
+		&:after 
+			+setBox()
+			content: ''
+			width: 100%
+			height: 100%
+			position: absolute
+			top: 0
+			left: 0
+			display: block
+		&:before
+			transform: rotate(-5deg)
+		&:after
+			transform: rotate(5deg)
+		
+		.loginform-box-inner 
+			+setBox()
+			position: relative
+			z-index: 10
+			+pad(2rem 4rem)
+			h2 
+				position: relative
+				text-align: center
+				span 
+					background: #fff
+					+pad(0 .5rem)
+				&:before,
+				&:after 
+					display: block
+					height: 2px 
+					width: 50%
+					content: ''
+					position: absolute
+					top: 50%
+				&:before
+					+background-gradient(#000, #FFF)
+					right: 0
+					z-index: -1
+				&:after
+					+background-gradient(#FFF, #000)
+					left: 0
+					z-index: -1
+			.btn-primary
+				+bor-rad(40px)
+				+pad(.5rem 2rem)
+			.boxinput
+				position: relative
+				&:after 
+					display: block
+					content: ''
+					height: 2px
+					background: green
+					width: 0
+					z-index: 100
+					+pos(abs, null null 0 50%)
+					transform: translateX(-50%)
+					transition: .35s all ease-in-out
+				input
+					background: none 
+					border: 0
+					+bor-rad(0)
+					+pad(0.375rem 0)
+					border-bottom: 2px solid darken(#fff,15%)
+					&:focus
+						outline: none
+						box-shadow: none
+						&:after 
+							width: 100%
+						~ label
+							transform: scale(.8) translate(-10px,-20px)
+				label
+					+pos(abs, 0 null null 0)
+					margin-bottom: 0
+					height: 100%
+					display: flex
+					align-items: center
+					z-index: -1
+					transition: .25s all ease-in-out
+				&.active
+					&:after 
+						width: 100%
+					input
+						outline: none
+						box-shadow: none
+						&:after 
+							width: 100%
+						~ label
+							transform: scale(.8) translate(-10px,-20px)
+
+
+
+.a1
+	padding: 50px 0
+	display: flex
+	align-items: center
+	text-align: center
+	justify-content: center
+	border-bottom: 1px solid black
+	border-top: 1px solid black
+	.container	
+		.item
+			.box1
+				display: flex
+				align-items: center
+				justify-content: center
+				text-align: center
+				figure
+					border-bottom: .5px solid black
+					i
+						font-size: 50px
+			.box2
+				display: flex
+				align-items: center
+				justify-content: center
+				text-align: center
+				figure
+					border-bottom: .5px solid black
+					i
+						font-size: 50px
+			.box3
+				display: flex
+				align-items: center
+				justify-content: center
+				text-align: center
+				figure
+					border-bottom: .5px solid black
+					i
+						font-size: 50px
+
+					
+			.box4
+				display: flex
+				align-items: center
+				justify-content: center
+				text-align: center
+				figure
+					border-bottom: .5px solid black
+					i
+						font-size: 50px
+			.box5
+				display: flex
+				align-items: center
+				justify-content: center
+				text-align: center
+				figure
+					border-bottom: .5px solid black
+					i
+						font-size: 50px
+
+			+media-breakpoint-up(sm)
+				.box2
+					figure
+						&:last-child
+							border-bottom: 0
+			+media-breakpoint-up(sm)
+				.box5
+					figure
+						&:last-child
+							border-bottom: 0
+			+media-breakpoint-up(sm)
+				.box3
+					figure
+						&:last-child
+							border-bottom: 0
+
+
+
+//////////// Cách khác: 1 div cha bọc toàn bộ item dùng border top + left, các item bên trong border right + bottom
+.boxproducts
+	padding: 2rem 0
+	margin: 5rem 0
+	.box-flex
+		display: flex
+		&:active
+			flex-direction: column
+		.item
+			overflow: hidden
+			border: 1px solid black
+			border-top: 0
+			&:first-child
+				border-top: 1px solid black
+				padding-top: 0
+			+media-breakpoint-up(sm)
+				padding-top: 0
+				&:nth-child(2)
+					border-top: 1px solid black
+					padding-top: 0
+				&:nth-child(2n)
+					border-left: 0
+			+media-breakpoint-up(lg)
+				&:nth-child(2n)
+					border-left: 1px solid black
+				&:nth-child(3)
+					border-top: 1px solid black
+					padding-top: 0
+				&:nth-child(3n+1)
+					border-left: 1px solid black
+				&:nth-child(3n+2)
+					border-right: 1px solid black
+					border-left: 0
+				&:nth-child(3n)
+					border-left: 0
+			.item-detail
+				padding: .5rem .5rem 0 .5rem
+				display: block
+				text-decoration: none
+				img
+					position: relative
+					width: 100%
+				figcaption
+					h2
+						text-align: center
+						color: darken(#FFF,20%)
+						margin: .7rem 0
+					p
+						font-weight: 500
+						text-align: center
+					.bag
+						position: absolute
+						display: block
+						content: ''
+						top: .5rem
+						left: 1rem
+						border-radius: 50%
+						width: 3rem
+						height: 3rem
+						background: #ff2810bf
+						span
+							text-align: center
+							display: flex
+							align-items: center
+							justify-content: center
+							margin-top: .7rem
+						+ .bag
+							top: .5rem
+							left: 4.5rem
+					.deal
+						position: absolute
+						top: .5rem
+						right: -12rem
+						width: 26rem
+						height: 2rem
+						background: red
+						color: #fff
+						text-align: center
+						display: flex
+						align-items: center
+						justify-content: center
+						transform: rotate(45deg)
+				.block
+					.btn-details
+						display: flex
+						justify-content: center
+						align-items: center
+						text-align: center
+						.btn
+							width: 8rem
+							margin: 0 .5rem
+				+media-breakpoint-up(lg)
+					.block-image
+						border-radius: 10px
+						overflow: hidden
+						position: relative
+						&:before
+							position: absolute
+							content: ''
+							display: block
+							width: 100%
+							height: 100%
+							top: 50%
+							z-index: 10
+							transition: .5s all ease-in-out
+						&:after
+							position: absolute
+							content: ''
+							display: block
+							width: 100%
+							height: 100%
+							bottom: 50%
+							transition: .5s all ease-in-out
+					.block
+						.btn-details
+							position: absolute
+							top: 30%
+							left: 15%
+							z-index: 100
+							opacity: 0
+					&:hover,
+					&:active
+						.block-image
+							&:before
+								background: rgba(0,0,0,.3)
+								top: 0
+							&:after
+								background: rgba(0,0,0,.3)
+								bottom: 0
+						.block
+							.btn-details
+								opacity: 1
+								transition: .5s all ease-in-out
+
+			// .block
+			// 	.btn-details
+			// 		display: flex
+			// 		text-align: center
+			// 		justify-content: center
+			// 		align-items: center
+			// +media-breakpoint-up(md)
+			// 	.btn-details
+			// 		display: none
+			// 	&:hover
+			// 		.btn-details
+			// 			position: absolute
+			// 			width: 100%
+			// 			height: 100%
+			// 			top: 0
+			// 			left: 0
+			// 			display: flex
+			// 			flex-direction: column
+			// 			z-index: 1
+			// 			transition: 5s all ease-in-out
+			// 			&:before
+			// 				content: ''
+			// 				display: block
+			// 				top: 0
+			// 				left: 0
+			// 				width: 100%
+			// 				height: 100%
+			// 				background: rgba(0,0,0,.5)
+			// 				z-index: 1
+			// 				transition: .5s all ease-in-out
+			// 			.a	
+			// 				position: absolute
+			// 				top: 50%
+			// 				left: 50%
+			// 				transform: translateX(-50%)
+			// 				margin: .5rem 0
+			// 				z-index: 20
+			// 			.b
+			// 				position: absolute
+			// 				top: 40%
+			// 				left: 50%
+			// 				transform: translateX(-50%)
+			// 				margin: .5rem 0
+			// 				z-index: 20
